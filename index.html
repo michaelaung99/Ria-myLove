@@ -87,9 +87,10 @@ if (!document.createElement('canvas').getContext) {
 	$("#copyright").css("bottom", "10px");
 	document.execCommand("stop");
 } else {
-	// Change the text content of the #messages div to "PALANG KA TAKKA"
+	// Ensure the text change happens after the DOM is fully loaded
 	$(document).ready(function() {
-		document.getElementById('messages').innerText = 'PALANG KA TAKKA SO MUCH';
+		// Ensure the element with id 'messages' is selected and updated
+		$('#messages').text('PALANG KA TAKKA SO MUCH');
 	});
 	
 	// Start heart animation after 5 seconds
