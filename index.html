@@ -1,155 +1,176 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <script src="https://kit.fontawesome.com/a14ae32021.js" crossorigin="anonymous"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>This one is for my baby</title>
+<script src="https://kit.fontawesome.com/a14ae32021.js" crossorigin="anonymous"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>This one is for my baby</title>
 
-    <style type="text/css">
-        @font-face {
-            font-family: digit;
-            src: url('digital-7_mono.ttf') format("truetype");
-        }
+<style type="text/css">
+@font-face {
+	font-family: digit;
+	src: url('digital-7_mono.ttf') format("truetype");
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #ffe;
-        }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #ffe;
+}
 
-        #loveHeart {
-            position: relative;
-            width: 100%;
-            height: 625px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+#loveHeart {
+  position: relative;
+  width: 100%;
+  height: 625px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-        #garden {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
+#garden {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
 
-        #words {
-            font-family: "sans-serif";
-            text-align: center;
-        }
+#words {
+  font-family: "sans-serif";
+  text-align: center;
+}
 
-        #messages {
-            font-size: 30px;
-            color: #666;
-        }
+#messages {
+  font-size: 30px;
+  color: #666;
+}
 
-        #elapseClock {
-            font-size: 18px;
-            color: #666;
-            margin-top: 10px;
-        }
+#elapseClock {
+  font-size: 18px;
+  color: #666;
+  margin-top: 10px;
+}
 
-        #loveu {
-            font-size: 24px;
-            color: #333;
-            margin-top: 20px;
-        }
+#loveu {
+  font-size: 24px;
+  color: #333;
+  margin-top: 20px;
+}
 
-        .signature {
-            font-size: 20px;
-            font-style: italic;
-        }
+.signature {
+  font-size: 20px;
+  font-style: italic;
+}
 
-        #heartspan {
-            text-align: center;
-            margin-top: 20px;
-        }
+#heartspan {
+  text-align: center;
+  margin-top: 20px;
+}
 
-        #icon {
-            font-size: 48px;
-            color: red;
-            margin: 50px;
-            display: block;
-            text-align: center;
-        }
-    </style>
+#icon {
+  font-size: 48px;
+  color: red;
+  margin: 50px;
+  display: block;
+  text-align: center;
+}
+</style>
 
-    <link href="css/default.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/garden.js"></script>
-    <script type="text/javascript" src="js/functions.js"></script>
+<link href="css/default.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+
 </head>
 
 <body>
-    <div id="mainDiv">
-        <div id="content">
-            <div id="code">
-                <span class="comments">/**</span><br />
-                <span class="space"/><span class="comments">*THE CODE OF LOVE</span><br />
-                <span class="space"/><span class="comments">*/</span><br />
-                Hey Girl !<br />
-                Do you remember the day we first met?<br />
-                <span class="comments">// The ET-LAB Friday. </span><br />
-                Since that day a spark begun;<br />
-                <span class="comments">// Your face Your Voice Your Words.</span><br />
-                Your everything got imprinted in my heart;<br />
-                As the time went on;<br />
-                The Bond grew stronger and stronger;<br />
-                Journey from Infatuation to Love;<br />
-                We have traveled a long way together;<br />
-                There have been fights ;<br />
-                <span class="comments">// And I'm sure there will be more.</span><br />
-                But our Bond will always grow back Stronger;<br />
-                <br />
-                <br />
-                All I want to say is:<br />
-                Baby, I will love you forever;<br />
-                <br />
-                <br />
-                Now If you want to hug me you can touch the heart below<br />
-                <br />
-                <span id="heartspan">
-                    <a href="image.jpg"><i class="fas fa-heart" id="icon"></i></a>
-                </span>
-            </div>
-            <div id="loveHeart">
-                <canvas id="garden"></canvas>
-                <div id="words">
-                    <div id="messages">
-                        PALANG KA TAKKA SO MUCH
-                    </div>
-                    <div id="elapseClock"></div>
-                    <div id="loveu">
-                        I LOVE YOU SO MUCH<br />
-                        <div class="signature">- MICHAEL</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <script type="text/javascript">
-        // Define the start date to reflect "12 days ago"
-        var together = new Date();
-        together.setDate(together.getDate() - 12); // Subtract 12 days
-        together.setHours(0);
-        together.setMinutes(0);
-        together.setSeconds(0);
-        together.setMilliseconds(0);
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+			<span class="comments">/**</span><br />
+			<span class="space"/><span class="comments">*THE CODE OF LOVE</span><br />
+			<span class="space"/><span class="comments">*/</span><br />
+			Hey Girl !<br />
+			Do you remember the day we first met?<br />
+			<span class="comments">// The ET-LAB Friday. </span><br />
+			Since that day a spark begun;<br />
+			<span class="comments">// Your face Your Voice Your Words.</span><br />
+			Your everything got imprinted in my heart;<br />
+			As the time went on;<br />
+			The Bond grew stronger and stronger;<br />
+			Journey from Infatuation to Love;<br />
+			We have traveled a long way together;<br />
+			There have been fights ;<br />
+			<span class="comments">// And I'm sure there will be more.</span><br />
+			But our Bond will always grow back Stronger;<br />
+			<br>
+			<br>
+			All I want to say is:<br />
+			Baby, I will love you forever;<br />
+			<br>
+			<br>
+			Now If you want to hug me you can touch the heart below<br />
+			<br>
+			<span id="heartspan">
+			<a href="image.jpg"><i class="fas fa-heart" id="icon"></i></a>
+			</span>
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					PALANG KA TAKKA SO MUCH
+				</div>
+				<div id="elapseClock"></div>
+				<div id="loveu">
+					I LOVE YOU SO MUCH<br/>
+					<div class="signature">- RITVIK</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-        // Ensure all scripts and animations are initialized properly
-        $(document).ready(function () {
-            // Start the elapsed time counter
-            timeElapse(together);
-            setInterval(function () {
-                timeElapse(together);
-            }, 500);
+<script type="text/javascript">
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var together = new Date();
+together.setFullYear(2016, 8, 5);
+together.setHours(16);
+together.setMinutes(30);
+together.setSeconds(0);
+together.setMilliseconds(0);
 
-            // Start heart animation after a delay
-            setTimeout(function () {
-                startHeartAnimation();
-            }, 5000);
-        });
-    </script>
+if (!document.createElement('canvas').getContext) {
+	var msg = document.createElement("div");
+	msg.id = "errorMsg";
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	document.body.appendChild(msg);
+	$("#code").css("display", "none")
+	$("#copyright").css("position", "absolute");
+	$("#copyright").css("bottom", "10px");
+	document.execCommand("stop");
+} else {
+	// Ensure the text change happens after the DOM is fully loaded
+	$(document).ready(function() {
+		// Update the message text
+		$('#messages').text('PALANG KA TAKKA SO MUCH');
+		
+		// Start the time elapse function
+		timeElapse(together);
+		setInterval(function () {
+			timeElapse(together);
+		}, 500);
+		
+		// Start heart animation after 5 seconds
+		setTimeout(function () {
+			startHeartAnimation();
+		}, 5000);
+	});
+	
+	adjustCodePosition();
+	$("#code").typewriter();
+}
+</script>
+
 </body>
 </html>
