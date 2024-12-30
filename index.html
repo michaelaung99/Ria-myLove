@@ -131,14 +131,15 @@
 <script>
 // Setting up basic functions
 var $window = $(window), gardenCtx, gardenCanvas, $garden, garden;
-var clientWidth = $(window).width();
-var clientHeight = $(window).height();
+var clientWidth = $window.width();
+var clientHeight = $window.height();
+var offsetX, offsetY; // Initialize offsets
 
 $(function () {
     // Setup garden
     var $loveHeart = $("#loveHeart");
-    var offsetX = $loveHeart.width() / 2;
-    var offsetY = $loveHeart.height() / 2 - 55;
+    offsetX = $loveHeart.width() / 2;
+    offsetY = $loveHeart.height() / 2 - 55;
     $garden = $("#garden");
     gardenCanvas = $garden[0];
     gardenCanvas.width = $("#loveHeart").width();
@@ -170,7 +171,7 @@ function getHeartPoint(angle) {
 function startHeartAnimation() {
     var interval = 50;
     var angle = 10;
-    var heart = new Array();
+    var heart = [];
     var animationTimer = setInterval(function () {
         var bloom = getHeartPoint(angle);
         var draw = true;
@@ -246,9 +247,7 @@ $(document).ready(function() {
 
     // Start typing effect
     $('#code').typewriter(function() {
-        setTimeout(function() {
-            startHeartAnimation(); // Start heart animation after typing effect is done
-        }, 500);
+        setTimeout(startHeartAnimation, 500); // Start heart animation after typing effect is done
     });
 
     // Start the time elapsed function
@@ -262,11 +261,6 @@ $(document).ready(function() {
     setInterval(function () {
         timeElapse(together);
     }, 500);
-
-    // Start the heart animation after 5 seconds
-    setTimeout(function () {
-        startHeartAnimation();
-    }, 5000);
 });
 </script>
 
