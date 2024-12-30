@@ -92,26 +92,25 @@ function startHeartAnimation() {
 	};
 })(jQuery);
 
-function timeElapse(date){
-	var current = Date();
-	var seconds = (Date.parse(current) - Date.parse(date)) / 1000;
-	var days = Math.floor(seconds / (3600 * 24));
-	seconds = seconds % (3600 * 24);
-	var hours = Math.floor(seconds / 3600);
-	if (hours < 10) {
-		hours = "0" + hours;
-	}
-	seconds = seconds % 3600;
-	var minutes = Math.floor(seconds / 60);
-	if (minutes < 10) {
-		minutes = "0" + minutes;
-	}
-	seconds = seconds % 60;
-	if (seconds < 10) {
-		seconds = "0" + seconds;
-	}
-	var result = "<span class=\"digit\">" + days + "</span> days <span class=\"digit\">" + hours + "</span> hours <span class=\"digit\">" + minutes + "</span> minutes <span class=\"digit\">" + seconds + "</span> seconds"; 
-	$("#elapseClock").html(result);
+function timeElapse(startDate) {
+    var currentDate = new Date();
+    var timeDiff = currentDate - startDate;
+
+    // Convert time difference to total days, hours, minutes, and seconds
+    var totalSeconds = Math.floor(timeDiff / 1000);
+    var totalMinutes = Math.floor(totalSeconds / 60);
+    var totalHours = Math.floor(totalMinutes / 60);
+    var totalDays = Math.floor(totalHours / 24);
+
+    var remainingHours = totalHours % 24;
+    var remainingMinutes = totalMinutes % 60;
+    var remainingSeconds = totalSeconds % 60;
+
+    // Format the output as "12 days 5 hours"
+    var countdownString = totalDays + " days " + remainingHours + " hours " + remainingMinutes + " minutes " + remainingSeconds + " seconds";
+
+    // Display the countdown in the elapseClock div
+    $('#elapseClock').text(countdownString);
 }
 
 function showMessages() {
@@ -120,6 +119,7 @@ function showMessages() {
 		showLoveU();
 	});
 }
+
 
 function adjustWordsPosition() {
 	$('#words').css("position", "absolute");
