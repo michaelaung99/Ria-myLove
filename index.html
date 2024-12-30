@@ -6,22 +6,18 @@
     <title>This one is for my baby</title>
     <script src="https://kit.fontawesome.com/a14ae32021.js" crossorigin="anonymous"></script>
     <style>
-        @font-face {
-            font-family: digit;
-            src: url('digital-7_mono.ttf') format("truetype");
-        }
-
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background: #ffe;
-        }
-
-        #mainDiv {
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        #mainDiv {
+            text-align: center;
         }
 
         #loveHeart {
@@ -41,8 +37,7 @@
 
         #words {
             font-family: "sans-serif";
-            text-align: center;
-            display: none; /* Initially hide */
+            display: none; /* Initially hidden */
         }
 
         #messages {
@@ -60,7 +55,7 @@
             font-size: 24px;
             color: #333;
             margin-top: 20px;
-            display: none; /* Initially hide */
+            display: none; /* Initially hidden */
         }
 
         .signature {
@@ -68,17 +63,10 @@
             font-style: italic;
         }
 
-        #heartspan {
-            text-align: center;
-            margin-top: 20px;
-        }
-
         #icon {
             font-size: 48px;
             color: red;
-            margin: 50px;
-            display: block;
-            text-align: center;
+            margin: 20px;
         }
     </style>
 </head>
