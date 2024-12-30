@@ -131,9 +131,7 @@
 <script>
 // Setting up basic functions
 var $window = $(window), gardenCtx, gardenCanvas, $garden, garden;
-var clientWidth = $window.width();
-var clientHeight = $window.height();
-var offsetX, offsetY; // Initialize offsets
+var offsetX, offsetY;
 
 $(function () {
     // Setup garden
@@ -142,16 +140,18 @@ $(function () {
     offsetY = $loveHeart.height() / 2 - 55;
     $garden = $("#garden");
     gardenCanvas = $garden[0];
-    gardenCanvas.width = $("#loveHeart").width();
-    gardenCanvas.height = $("#loveHeart").height();
+    gardenCanvas.width = $loveHeart.width();
+    gardenCanvas.height = $loveHeart.height();
     gardenCtx = gardenCanvas.getContext("2d");
     gardenCtx.globalCompositeOperation = "lighter";
     garden = new Garden(gardenCtx, gardenCanvas);
     
-    $("#content").css("width", $loveHeart.width() + $("#code").width());
-    $("#content").css("height", Math.max($loveHeart.height(), $("#code").height()));
-    $("#content").css("margin-top", Math.max(($window.height() - $("#content").height()) / 2, 10));
-    $("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
+    $("#content").css({
+        "width": $loveHeart.width() + $("#code").width(),
+        "height": Math.max($loveHeart.height(), $("#code").height()),
+        "margin-top": Math.max(($window.height() - $("#content").height()) / 2, 10),
+        "margin-left": Math.max(($window.width() - $("#content").width()) / 2, 10)
+    });
 
     // Render Loop for the garden animation
     setInterval(function () {
@@ -163,7 +163,7 @@ $(function () {
 function getHeartPoint(angle) {
     var t = angle / Math.PI;
     var x = 19.5 * (16 * Math.pow(Math.sin(t), 3));
-    var y = - 20 * (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+    var y = -20 * (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
     return new Array(offsetX + x, offsetY + y);
 }
 
@@ -215,7 +215,7 @@ function timeElapse(date){
     if (seconds < 10) {
         seconds = "0" + seconds;
     }
-    var result = "<span class=\"digit\">" + days + "</span> days <span class=\"digit\">" + hours + "</span> hours <span class=\"digit\">" + minutes + "</span> minutes <span class=\"digit\">" + seconds + "</span> seconds"; 
+    var result = `<span class="digit">${days}</span> days <span class="digit">${hours}</span> hours <span class="digit">${minutes}</span> minutes <span class="digit">${seconds}</span> seconds`;
     $("#elapseClock").html(result);
 }
 
@@ -241,13 +241,12 @@ function showLoveU() {
 
 // Start the page interactions
 $(document).ready(function() {
-    // Set content for the code block
     $('#messages').text('PALANG KA TAKKA SO MUCH');
     $('#code').html('<span class="comments">/**</span><br /> <span class="comments">*THE CODE OF LOVE</span><br /> <span class="comments">*/</span><br /> Hey Girl !<br /> Do you remember the day we first met?<br /> <span class="comments">// The ET-LAB Friday. </span><br /> Since that day a spark begun;<br /> <span class="comments">// Your face Your Voice Your Words.</span><br /> Your everything got imprinted in my heart;<br /> As the time went on;<br /> The Bond grew stronger and stronger;<br /> Journey from Infatuation to Love;<br /> We have traveled a long way together;<br /> There have been fights ;<br /> <span class="comments">// And I'm sure there will be more.</span><br /> But our Bond will always grow back Stronger;<br /> <br /> <br /> All I want to say is:<br /> Baby, I will love you forever;<br /> <br /> <br /> Now If you want to hug me you can touch the heart below<br />');
 
     // Start typing effect
     $('#code').typewriter(function() {
-        setTimeout(startHeartAnimation, 500); // Start heart animation after typing effect is done
+        setTimeout(startHeartAnimation, 500); // Start heart animation after typing effect
     });
 
     // Start the time elapsed function
