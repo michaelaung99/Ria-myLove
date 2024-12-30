@@ -1,41 +1,45 @@
 var $window = $(window), gardenCtx, gardenCanvas, $garden, garden;
-var clientWidth = $(window).width();
-var clientHeight = $(window).height();
+var clientWidth = $window.width();
+var clientHeight = $window.height();
 var animationStarted = false;  // Ensure animation doesn't restart on resize
 
 $(function () {
     // Setup garden
     var $loveHeart = $("#loveHeart");
-    var offsetX = $loveHeart.width() / 2;
-    var offsetY = $loveHeart.height() / 2 - 55;
     $garden = $("#garden");
     gardenCanvas = $garden[0];
     gardenCanvas.width = $loveHeart.width();
     gardenCanvas.height = $loveHeart.height();
     gardenCtx = gardenCanvas.getContext("2d");
     gardenCtx.globalCompositeOperation = "lighter";
+
     garden = new Garden(gardenCtx, gardenCanvas);
 
+    // Render loop for the garden animation
+    setInterval(function () {
+        garden.render();
+    }, Garden.options.growSpeed);
+
+    // Center content
+    centerContent($loveHeart);
+});
+
+function centerContent($loveHeart) {
     $("#content").css({
         "width": $loveHeart.width() + $("#code").width(),
         "height": Math.max($loveHeart.height(), $("#code").height()),
         "margin-top": Math.max(($window.height() - $("#content").height()) / 2, 10),
         "margin-left": Math.max(($window.width() - $("#content").width()) / 2, 10)
     });
-
-    // Render loop for the garden animation
-    setInterval(function () {
-        garden.render();
-    }, Garden.options.growSpeed);
-});
+}
 
 $(window).resize(function () {
-    var newWidth = $(window).width();
-    var newHeight = $(window).height();
+    var newWidth = $window.width();
+    var newHeight = $window.height();
     if (newWidth !== clientWidth || newHeight !== clientHeight) {
-        // Recalculate canvas size on resize
-        gardenCanvas.width = newWidth;
-        gardenCanvas.height = newHeight;
+        gardenCanvas.width = $garden.width(); // Use $garden width
+        gardenCanvas.height = $garden.height(); // Use $garden height
+        centerContent($("#loveHeart")); // Re-center content
         clientWidth = newWidth;
         clientHeight = newHeight;
     }
@@ -51,10 +55,11 @@ function getHeartPoint(angle) {
 
 // Start heart animation function
 function startHeartAnimation() {
+    if (animationStarted) return; // Prevents restart
     var interval = 50;
     var angle = 10;
     var heart = [];
-    animationStarted = true;  // Prevent restart on resize
+    animationStarted = true;
 
     var animationTimer = setInterval(function () {
         var bloom = getHeartPoint(angle);
@@ -77,6 +82,7 @@ function startHeartAnimation() {
         if (angle >= 30) {
             clearInterval(animationTimer);
             showMessages();
+            animationStarted = false; // Reset for future animations
         } else {
             angle += 0.2;
         }
