@@ -1,6 +1,7 @@
 var $window = $(window), gardenCtx, gardenCanvas, $garden, garden;
 var clientWidth = $(window).width();
 var clientHeight = $(window).height();
+var animationStarted = false;  // To ensure animation doesn't restart on resize
 
 $(function () {
     // Setup garden
@@ -30,14 +31,16 @@ $(window).resize(function() {
     var newWidth = $(window).width();
     var newHeight = $(window).height();
     if (newWidth != clientWidth || newHeight != clientHeight) {
-        // Recalculate canvas size on resize
+        // Recalculate canvas size on resize, without restarting the animation unless necessary
         gardenCanvas.width = newWidth;
         gardenCanvas.height = newHeight;
         offsetX = newWidth / 2;
         offsetY = newHeight / 2 - 55;
         clientWidth = newWidth;
         clientHeight = newHeight;
-        startHeartAnimation(); // Restart animation if necessary
+        if (!animationStarted) {
+            startHeartAnimation(); // Start animation if it's not already started
+        }
     }
 });
 
@@ -54,6 +57,7 @@ function startHeartAnimation() {
     var interval = 50;
     var angle = 10;
     var heart = new Array();
+    animationStarted = true;  // Prevent restart on resize
     var animationTimer = setInterval(function () {
         var bloom = getHeartPoint(angle);
         var draw = true;
