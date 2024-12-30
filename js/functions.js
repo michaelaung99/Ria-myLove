@@ -47,20 +47,19 @@
     window.showMessages = function () {
         adjustWordsPosition();
         $('#messages').fadeIn(5000, function () {
-            showLoveU();
+            showLoveU(); // Call to show "I love you" message
         });
     };
 
     // Adjust the positioning of the text message
     function adjustWordsPosition() {
         $('#words').css("position", "absolute");
-        $('#words').css("top", $("#garden").position().top + 195);
-        $('#words').css("left", $("#garden").position().left + 70);
+        $('#words').css("top", $("#garden").position().top + 195); // Adjust as needed for centering
+        $('#words').css("left", $("#garden").position().left + 70); // Adjust as needed for centering
     }
 
     // Show "I love you" message
     function showLoveU() {
-        $('#loveu').fadeIn(3000);
+        $('#loveu').fadeIn(3000); // Ensure this is called after messages are shown
     }
-
 })(jQuery);
